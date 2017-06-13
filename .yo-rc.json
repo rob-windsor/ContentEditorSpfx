@@ -1,0 +1,8 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "libraryName": "content-editor",
+    "framework": "none",
+    "version": "1.0.2",
+    "libraryId": "438b6789-4cb6-44a8-b593-523ffe12ef54"
+  }
+}

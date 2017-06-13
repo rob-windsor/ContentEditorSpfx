@@ -1,0 +1,20 @@
+{
+  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
+
+  "id": "a7ebd6b2-0fa3-4a1f-b75a-d8fbcf8ad291",
+  "alias": "ContentEditorWebPart",
+  "componentType": "WebPart",
+  "version": "0.0.1",
+  "manifestVersion": 2,
+
+  "preconfiguredEntries": [{
+    "groupId": "a7ebd6b2-0fa3-4a1f-b75a-d8fbcf8ad291",
+    "group": { "default": "Under Development" },
+    "title": { "default": "ContentEditor" },
+    "description": { "default": "ContentEditor description" },
+    "officeFabricIconFontName": "Page",
+    "properties": {
+      "contentLink": ""
+    }
+  }]
+}

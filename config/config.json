@@ -1,0 +1,13 @@
+{
+  "entries": [
+    {
+      "entry": "./lib/webparts/contentEditor/ContentEditorWebPart.js",
+      "manifest": "./src/webparts/contentEditor/ContentEditorWebPart.manifest.json",
+      "outputPath": "./dist/content-editor.bundle.js"
+    }
+  ],
+  "externals": {},
+  "localizedResources": {
+    "contentEditorStrings": "webparts/contentEditor/loc/{locale}.js"
+  }
+}
