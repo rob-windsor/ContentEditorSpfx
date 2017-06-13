@@ -50,16 +50,20 @@ export default class ContentEditorWebPart extends BaseClientSideWebPart<IContent
       if (this.properties.contentLink) {
         // Add _spPageContextInfo global variable 
         let w = (window as any);
-        w._spPageContextInfo = this.context.pageContext.legacyPageContext;
+        if (!w._spPageContextInfo) {
+          w._spPageContextInfo = this.context.pageContext.legacyPageContext;
+        }
 
         // Add form digest hidden field
-        let digestValue = this.context.pageContext.legacyPageContext.formDigestValue;
-        let requestDigestInput: Element = document.createElement('input');
-        requestDigestInput.setAttribute('type', 'hidden');
-        requestDigestInput.setAttribute('name', '__REQUESTDIGEST');
-        requestDigestInput.setAttribute('id', '__REQUESTDIGEST');
-        requestDigestInput.setAttribute('value', digestValue);
-        document.body.appendChild(requestDigestInput);        
+        if (!document.getElementById('__REQUESTDIGEST')) {
+          let digestValue = this.context.pageContext.legacyPageContext.formDigestValue;
+          let requestDigestInput: Element = document.createElement('input');
+          requestDigestInput.setAttribute('type', 'hidden');
+          requestDigestInput.setAttribute('name', '__REQUESTDIGEST');
+          requestDigestInput.setAttribute('id', '__REQUESTDIGEST');
+          requestDigestInput.setAttribute('value', digestValue);
+          document.body.appendChild(requestDigestInput);        
+        }
 
         // Get server relative URL to content link file
         let filePath = this.properties.contentLink;
