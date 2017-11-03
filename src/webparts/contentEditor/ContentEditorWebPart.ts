@@ -44,49 +44,49 @@ export default class ContentEditorWebPart extends BaseClientSideWebPart<IContent
           jQuery("#weather").html('<p>'+error+'</p>');
         }
         });
-      </script>`;
-      this.executeScript(this.domElement);
+        </script>`;
+        this.executeScript(this.domElement);
       } else {
-      if (this.properties.contentLink) {
-        // Add _spPageContextInfo global variable 
-        let w = (window as any);
-        if (!w._spPageContextInfo) {
-          w._spPageContextInfo = this.context.pageContext.legacyPageContext;
-        }
+        if (this.properties.contentLink) {
+          // Add _spPageContextInfo global variable 
+          let w = (window as any);
+          if (!w._spPageContextInfo) {
+            w._spPageContextInfo = this.context.pageContext.legacyPageContext;
+          }
 
-        // Add form digest hidden field
-        if (!document.getElementById('__REQUESTDIGEST')) {
-          let digestValue = this.context.pageContext.legacyPageContext.formDigestValue;
-          let requestDigestInput: Element = document.createElement('input');
-          requestDigestInput.setAttribute('type', 'hidden');
-          requestDigestInput.setAttribute('name', '__REQUESTDIGEST');
-          requestDigestInput.setAttribute('id', '__REQUESTDIGEST');
-          requestDigestInput.setAttribute('value', digestValue);
-          document.body.appendChild(requestDigestInput);        
-        }
+          // Add form digest hidden field
+          if (!document.getElementById('__REQUESTDIGEST')) {
+            let digestValue = this.context.pageContext.legacyPageContext.formDigestValue;
+            let requestDigestInput: Element = document.createElement('input');
+            requestDigestInput.setAttribute('type', 'hidden');
+            requestDigestInput.setAttribute('name', '__REQUESTDIGEST');
+            requestDigestInput.setAttribute('id', '__REQUESTDIGEST');
+            requestDigestInput.setAttribute('value', digestValue);
+            document.body.appendChild(requestDigestInput);        
+          }
 
-        // Get server relative URL to content link file
-        let filePath = this.properties.contentLink;
-        if (filePath.toLowerCase().substr(0, 4) == "http") {
-          let parts = filePath.replace("://", "").split("/");
-          parts.shift();
-          filePath = "/" + parts.join("/");
-        }
+          // Get server relative URL to content link file
+          let filePath = this.properties.contentLink;
+          if (filePath.toLowerCase().substr(0, 4) == "http") {
+            let parts = filePath.replace("://", "").split("/");
+            parts.shift();
+            filePath = "/" + parts.join("/");
+          }
 
-        // Get file and read script
-        let webUrl = this.context.pageContext.web.absoluteUrl;
-        this.context.spHttpClient.get(webUrl + 
-          "/_api/Web/getFileByServerRelativeUrl('" + filePath + "')/$value", 
-          SPHttpClient.configurations.v1)
-          .then((response) => {
-            return response.text();
-          })
-          .then((value) => {
-            this.domElement.innerHTML = value;
-            this.executeScript(this.domElement);
-          });
-      }
-    }    
+          // Get file and read script
+          let siteUrl = this.context.pageContext.site.absoluteUrl;
+          this.context.spHttpClient.get(siteUrl + 
+            "/_api/Web/getFileByServerRelativeUrl('" + filePath + "')/$value", 
+            SPHttpClient.configurations.v1)
+            .then((response) => {
+              return response.text();
+            })
+            .then((value) => {
+              this.domElement.innerHTML = value;
+              this.executeScript(this.domElement);
+            });
+        }
+      }    
   }
 
   protected get dataVersion(): Version {
