@@ -2,7 +2,7 @@
   "solution": {
     "name": "SpfxContentEditor",
     "id": "438b6789-4cb6-44a8-b593-523ffe12ef54",
-    "version": "1.0.0.0"
+    "version": "1.0.3.0"
   },
   "paths": {
     "zippedPackage": "solution/SpfxContentEditor.sppkg"
