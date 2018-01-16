@@ -82,13 +82,17 @@ export default class ContentEditorWebPart extends BaseClientSideWebPart<IContent
             return response.text();
           })
           .then((value) => {
+            this.domElement.innerHTML = ``;
+
             // Ensure the Client Object Model is loaded
-            this.domElement.innerHTML = `
-            <script type="text/javascript" src="${siteUrl}/_layouts/15/init.js"></script>
-            <script type="text/javascript" src="${siteUrl}/_layouts/15/MicrosoftAjax.js"></script>
-            <script type="text/javascript" src="${siteUrl}/_layouts/15/SP.Runtime.js"></script>
-            <script type="text/javascript" src="${siteUrl}/_layouts/15/SP.js"></script>
-            `;
+            if (!w.SP) {
+              this.domElement.innerHTML += `
+              <script type="text/javascript" src="${siteUrl}/_layouts/15/init.js"></script>
+              <script type="text/javascript" src="${siteUrl}/_layouts/15/MicrosoftAjax.js"></script>
+              <script type="text/javascript" src="${siteUrl}/_layouts/15/SP.Runtime.js"></script>
+              <script type="text/javascript" src="${siteUrl}/_layouts/15/SP.js"></script>
+              `;  
+            }
 
             this.domElement.innerHTML += value;
             this.executeScript(this.domElement);
