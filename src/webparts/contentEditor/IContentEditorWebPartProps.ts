@@ -1,3 +1,3 @@
 export interface IContentEditorWebPartProps {
-  contentLink: string;
+  ContentLink: string;
 }
