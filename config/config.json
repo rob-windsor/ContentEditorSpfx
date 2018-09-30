@@ -1,13 +1,18 @@
 {
-  "entries": [
-    {
-      "entry": "./lib/webparts/contentEditor/ContentEditorWebPart.js",
-      "manifest": "./src/webparts/contentEditor/ContentEditorWebPart.manifest.json",
-      "outputPath": "./dist/content-editor.bundle.js"
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "content-editor-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/contentEditor/ContentEditorWebPart.js",
+          "manifest": "./src/webparts/contentEditor/ContentEditorWebPart.manifest.json"
+        }
+      ]
     }
-  ],
+  },
   "externals": {},
   "localizedResources": {
-    "contentEditorStrings": "webparts/contentEditor/loc/{locale}.js"
+    "contentEditorStrings": "lib/webparts/contentEditor/loc/{locale}.js"
   }
 }

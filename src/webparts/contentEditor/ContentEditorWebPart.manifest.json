@@ -1,17 +1,16 @@
 {
-  "$schema": "../../../node_modules/@microsoft/sp-module-interfaces/lib/manifestSchemas/jsonSchemas/clientSideComponentManifestSchema.json",
-
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx/client-side-web-part-manifest.schema.json",
   "id": "a7ebd6b2-0fa3-4a1f-b75a-d8fbcf8ad291",
   "alias": "ContentEditorWebPart",
   "componentType": "WebPart",
-  "version": "0.0.1",
+  "version": "*",
   "manifestVersion": 2,
-
+  "requiresCustomScript": false,
   "preconfiguredEntries": [{
     "groupId": "a7ebd6b2-0fa3-4a1f-b75a-d8fbcf8ad291",
-    "group": { "default": "Under Development" },
-    "title": { "default": "ContentEditor" },
-    "description": { "default": "ContentEditor description" },
+    "group": { "default": "Other" },
+    "title": { "default": "SPFx Content Editor" },
+    "description": { "default": "SharePoint Framework content editor web part" },
     "officeFabricIconFontName": "Page",
     "properties": {
       "contentLink": ""

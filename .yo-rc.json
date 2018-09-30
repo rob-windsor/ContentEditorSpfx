@@ -1,8 +1,11 @@
 {
   "@microsoft/generator-sharepoint": {
+    "isCreatingSolution": true,
+    "environment": "spo",
+    "version": "1.6.0",
     "libraryName": "content-editor",
-    "framework": "none",
-    "version": "1.0.2",
-    "libraryId": "438b6789-4cb6-44a8-b593-523ffe12ef54"
+    "libraryId": "438b6789-4cb6-44a8-b593-523ffe12ef54",
+    "packageManager": "npm",
+    "componentType": "webpart"
   }
 }
