@@ -3,8 +3,9 @@
   "solution": {
     "name": "SpfxContentEditor",
     "id": "438b6789-4cb6-44a8-b593-523ffe12ef54",
-    "version": "1.1.0.0",
-    "includeClientSideAssets": true
+    "version": "1.2.0.0",
+    "includeClientSideAssets": true,
+    "skipFeatureDeployment": true
   },
   "paths": {
     "zippedPackage": "solution/SpfxContentEditor.sppkg"
